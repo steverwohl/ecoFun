@@ -33,9 +33,12 @@ more of the above to come as we complete the project
 
     service apache2 stop
     npm install -g phant
+    npm install -g forever
 
 ##to start server:
     phant
+##or
+    forever start /usr/local/bin/phant
 
 ##the defualt address is 8080 for http and 8081 for telnet, this can be changed by editing:
     nano /usr/local/bin/phant
