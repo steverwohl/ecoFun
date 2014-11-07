@@ -9,13 +9,13 @@ Lets get started
 =====
 You will need a network connection at this point.  I will also assume that we are root.
 
-#On Debian or Ubuntu:
-apt-get update && apt-get install python-serial python-setuptools python-dev python-smbus python-pip
+##On Debian or Ubuntu:
+    apt-get update && apt-get install python-serial python-setuptools python-dev python-smbus python-pip
 
 which dtc
 
 #this should give the response:
-/usr/bin/dtc
+    /usr/bin/dtc
 
 #else:
 cd /tmp/
