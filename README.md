@@ -17,13 +17,13 @@ You will need a network connection at this point.  I will also assume that we ar
 this should give the response:
     /usr/bin/dtc
 
-else:
+##else:
     cd /tmp/
     wget -c https://raw.github.com/RobertCNelson/tools/master/pkgs/dtc.sh 
     chmod +x dtc.sh 
     ./dtc.sh 
 
-install some pip packages:
+##lets install some pip packages:
     pip install PyBBIO
     pip install Adafruit_BBIO
 
@@ -34,10 +34,10 @@ more of the above to come as we complete the project
     service apache2 stop
     npm install -g phant
 
-to start server:
+##to start server:
     phant
 
-the defualt address is 8080 for http and 8081 for telnet, this can be changed by editing:
+##the defualt address is 8080 for http and 8081 for telnet, this can be changed by editing:
     nano /usr/local/bin/phant
 
 #ubuntu setup to share network with beaglebone:
@@ -48,7 +48,7 @@ the defualt address is 8080 for http and 8081 for telnet, this can be changed by
     sudo iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
     sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 
-on beaglebone:
+##on beaglebone:
     route add default gw 192.168.7.1
     echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
