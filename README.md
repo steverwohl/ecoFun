@@ -8,41 +8,6 @@ http://debian.beagleboard.org/images/bone-debian-7.5-2014-05-14-2gb.img.xz
 Lets get started
 =====
 You will need a network connection at this point.  I will also assume that we are root.
-
-##On Debian or Ubuntu:
-    apt-get update && apt-get install python-serial python-setuptools python-dev python-smbus python-pip
-
-    which dtc
-
-this should give the response:
-    /usr/bin/dtc
-
-##else:
-    cd /tmp/
-    wget -c https://raw.github.com/RobertCNelson/tools/master/pkgs/dtc.sh 
-    chmod +x dtc.sh 
-    ./dtc.sh 
-
-##lets install some pip packages:
-    pip install PyBBIO
-    pip install Adafruit_BBIO
-
-more of the above to come as we complete the project
-
-##install the phant server.  In the future these will be two seperate beaglebones.  One for the operation of the equipment, another for storing and transfering data.  I hope this will provide a robust system for dealing with how to control and log the system.
-
-    service apache2 stop
-    npm install -g phant
-    npm install -g forever
-
-##to start server:
-    phant
-##or
-    forever start /usr/local/bin/phant
-
-##the defualt address is 8080 for http and 8081 for telnet, this can be changed by editing:
-    nano /usr/local/bin/phant
-
 #ubuntu setup to share network with beaglebone:
 
     sudo ifconfig eth1 192.168.7.1 netmask 255.255.255.252
@@ -55,9 +20,41 @@ more of the above to come as we complete the project
     route add default gw 192.168.7.1
     echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
+##On Debian or Ubuntu:
+    sudo apt-get update 
+    sudo apt-get install ntp
+    sudo ntpdate -s time.nist.gov
+    sudo apt-get install python-pip    
+    sudo apt-get install python-serial python-setuptools python-dev python-smbus 
+    sudo apt-get install python-numpy
+
+
+##lets install some pip packages:
+    
+    sudo pip install PyBBIO
+    sudo pip install Adafruit_BBIO
+
+##best to test the above packages
+
+more of the above to come as we complete the project
+
+##install the phant server.  In the future these will be two seperate beaglebones.  One for the operation of the equipment, another for storing and transfering data.  I hope this will provide a robust system for dealing with how to control and log the system.
+
+    sudo service apache2 stop
+    sudo npm install -g phant
+    sudo npm install -g forever
+
+##to start server:
+    phant
+##or
+    forever start /usr/local/bin/phant
+
+##the defualt address is 8080 for http and 8081 for telnet, this can be changed by editing:
+    nano /usr/local/bin/phant
+
 cross fingers and hope it works
 
 ecoFun chamber project
 
 ##12 November 2014:
-Upgraded the beaglebone to linux kernel 3.14.  Unable to get the moxa to work correctly.  True PITA
+Upgraded the beaglebone to linux kernel 3.14.  Unable to get the moxa to work correctly.  True PITA that moxa.  Tried a prolific usb to rs232 converter and it seems to works.  so i believe i need to find a supported usb hub now for the kernel.
