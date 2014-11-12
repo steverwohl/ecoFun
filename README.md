@@ -58,3 +58,6 @@ more of the above to come as we complete the project
 cross fingers and hope it works
 
 ecoFun chamber project
+
+##12 November 2014:
+Upgraded the beaglebone to linux kernel 3.14.  Unable to get the moxa to work correctly.  True PITA
