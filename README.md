@@ -17,10 +17,12 @@ You will need a network connection at this point.  I will also assume that we ar
     sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
 
 ##on beaglebone:
+
     route add default gw 192.168.7.1
     echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 
-##On Debian or Ubuntu:
+##On Debian to install some packages:
+
     sudo apt-get update 
     sudo apt-get install ntp
     sudo ntpdate -s time.nist.gov
@@ -29,9 +31,19 @@ You will need a network connection at this point.  I will also assume that we ar
     sudo apt-get install python-numpy
 
 
+##On some images of the kernel the device tree overlay is not present, this is required
+for muxing the pins, read more at:
+https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/overview
+
+    cd /tmp/
+    wget -c https://raw.github.com/RobertCNelson/tools/master/pkgs/dtc.sh 
+    chmod +x dtc.sh 
+    ./dtc.sh 
+
 ##lets install some pip packages:
-    
+
     sudo pip install PyBBIO
+    sudo easy_install -U distribute
     sudo pip install Adafruit_BBIO
 
 ##best to test the above packages
