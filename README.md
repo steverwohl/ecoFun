@@ -69,4 +69,9 @@ cross fingers and hope it works
 ecoFun chamber project
 
 ##12 November 2014:
-Upgraded the beaglebone to linux kernel 3.14.  Unable to get the moxa to work correctly.  True PITA that moxa.  Tried a prolific usb to rs232 converter and it seems to works.  so i believe i need to find a supported usb hub now for the kernel.
+Upgraded the beaglebone to linux kernel 3.14.  Unable to get the moxa to work correctly.  True PITA that moxa.  Tried a prolific usb to rs232 converter and it seems to works.  so i believe i need to find a supported usb hub now for the kernel.  The kernel 3.14 is not mainlined so not the best choice as of yet.  I will work on version 3.8 as the standard until the new kernel and packages are working together.
+
+##13 November 2014:
+installed the old kernel new image:
+http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Debian_Releases
+version from 11-11-2014
