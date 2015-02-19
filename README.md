@@ -5,6 +5,18 @@ This file will explain how to setup the beagleboen for deployment.  This is an i
 http://debian.beagleboard.org/images/bone-debian-7.5-2014-05-14-2gb.img.xz
 
 =====
+FIX the USB Issues
+=====
+So here is what I have had to do to get the USB going:
+After flashing the image I lost my usb network.  Lord knows I need it sometimes.
+
+
+sudo mkdir -p /opt/scripts/boot/ 
+cd /opt/scripts/boot/ 
+sudo wget https://raw.githubusercontent.com/RobertCNelson/boot-scripts/master/boot/am335x_evm.sh 
+sudo chmod +x am335x_evm.sh 
+
+=====
 Lets get started
 =====
 You will need a network connection at this point.  I will also assume that we are root.
